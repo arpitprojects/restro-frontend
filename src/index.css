@@ -56,6 +56,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.Content{
+  width:100%;
+  max-width:100%;
+  /* max-height:auto; */
+  height:100%;
+  overflow: hidden;
+}
 #Content{
   width:100%;
   max-width:100%;
