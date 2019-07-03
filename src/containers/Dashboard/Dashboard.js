@@ -9,6 +9,7 @@ import List from '../List/List';
 import AutoComplete from '../Autocomplete/Autocomplete';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Map from '../Map/Map';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 class Dashboard extends Component {
     constructor(props){
@@ -18,7 +19,8 @@ class Dashboard extends Component {
             currentLatitude  : 0,
             currentLongitiute : 0,
             isLoading : true,
-            isResponsive : true
+            isResponsive : true,
+            appLoading: false
         }
     }
     getData = (val) => {
@@ -29,7 +31,9 @@ class Dashboard extends Component {
 
     }
     getCurrentLocation = (x , y) => {
-        console.log('2', this.state)
+        this.setState({
+            appLoading : true
+        })
             var bodyParameters = {
                 lat: x,
                 lng: y,
@@ -40,7 +44,8 @@ class Dashboard extends Component {
                 config
             ).then((response) => {
                 this.setState({
-                    isLoading : true
+                    isLoading : true,
+                    appLoading:false
                 })
                 this.setState({
                     buisness  : response.data.businesses
@@ -107,7 +112,7 @@ class Dashboard extends Component {
     render() {
         return ( 
             <div id="Content">
-              
+             {this.state.appLoading  && <LinearProgress />}
                  <AutoComplete id="autocomplete" sendData={this.getData}/>
                   <AppBar toggleSwitch={ this.toggleSwitchBar} getC={this.ececuteCurrentLocation}/>
                 

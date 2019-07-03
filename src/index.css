@@ -363,6 +363,7 @@ p.s-title{
   border-top: 1px solid #e6e6e6;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   border-radius: 0 0 2px 2px;
+  font-size:1rem;
 }
 
 .Demo__suggestion-item {
@@ -417,4 +418,10 @@ p.s-title{
   .paper-custom{
     margin-top:15% !important;
   }
+}
+.MuiLinearProgress-root{
+  height:4px !important;
+}
+.MuiLinearProgress-colorPrimary{
+  background-color: #333 !important;
 }
